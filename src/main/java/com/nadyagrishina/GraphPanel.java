@@ -23,11 +23,11 @@ class GraphPanel extends JPanel {
     );
 
     private final Map<String, String> names = Map.of(
-            "A", "Velín",
-            "B", "Laboratoř",
-            "C", "Sklad",
-            "D", "Reaktor",
-            "E", "Kyslík"
+            "A", "Control Room",
+            "B", "Laboratory",
+            "C", "Storage",
+            "D", "Reactor",
+            "E", "Oxygen Supply"
     );
 
     private Set<String> reachable;
@@ -115,12 +115,10 @@ class GraphPanel extends JPanel {
             g.drawString(name, textX, textY);
 
             g.setColor(Color.BLACK);
-            int labelX, labelY;
+            int labelX = p.x, labelY;
             if (name.equals("B")){
-                labelX = p.x - 10;
                 labelY = p.y - 10;
             } else {
-                labelX = p.x;
                 labelY = p.y + 60;
             }
             g.drawString(names.get(name), labelX, labelY);
@@ -128,9 +126,9 @@ class GraphPanel extends JPanel {
     }
 
     private void drawLegend(Graphics2D g) {
-        drawLegendItem(g, 20, Color.BLUE, "Výchozí modul");
-        drawLegendItem(g, 180, Color.GREEN, "Dostupný modul");
-        drawLegendItem(g, 355, Color.RED, "Nedostupný modul");
+        drawLegendItem(g, 20, Color.BLUE, "Starting module");
+        drawLegendItem(g, 180, Color.GREEN, "Reachable module");
+        drawLegendItem(g, 355, Color.RED, "Unreachable module");
     }
 
     private void drawLegendItem(

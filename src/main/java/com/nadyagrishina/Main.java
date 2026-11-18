@@ -20,7 +20,7 @@ public class Main {
         );
 
         SwingUtilities.invokeLater(() -> {
-            JFrame frame = new JFrame("Vesmírná stanice");
+            JFrame frame = new JFrame("Space Station");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.setSize(600, 530);
             frame.setLocationRelativeTo(null);
@@ -39,16 +39,16 @@ public class Main {
             corridorBox.setSelectedItem("B-D");
 
             JPanel controls = new JPanel(new GridLayout(2, 2, 10, 10));
-            controls.add(new JLabel("Výchozí modul:"));
+            controls.add(new JLabel("Starting module:"));
             controls.add(startBox);
-            controls.add(new JLabel("Vyberte poškozenou chodbu:"));
+            controls.add(new JLabel("Damaged corridor:"));
             controls.add(corridorBox);
 
             Set<String> reachable = bfs(graph, "A", "B", "D");
             GraphPanel panel = new GraphPanel(graph, reachable);
 
             JLabel status = new JLabel(
-                    "Dostupné moduly: " + reachable.size() + " z " + graph.size(),
+                    "Reachable modules: " + reachable.size() + " z " + graph.size(),
                     SwingConstants.CENTER
             );
 
