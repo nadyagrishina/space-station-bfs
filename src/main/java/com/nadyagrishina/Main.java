@@ -68,7 +68,7 @@ public class Main {
 
                 panel.updateGraph(result, start, from, to);
                 status.setText(
-                        "Dostupné moduly: " + result.size() + " z " + graph.size()
+                        "Reachable modules: " + result.size() + " of " + graph.size()
                 );
             };
 
